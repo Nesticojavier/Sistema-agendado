@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Editar Cita</title>
+</head>
+<body>
+    {% for datos in cita %}
+    <form method="post" action="/update">
+
+        ID de la cita:
+        <input type="text" value={{datos[0]}} readonly id="txtId" name="txtId">
+        <br>
+        
+        Nombre:
+        <input type="text" value={{datos[1]}} name="txtNombre" id="txtNombre" readonly>
+        <br>
+
+        Apellido:
+        <input type="text" value={{datos[2]}} name="txtApellido" id="txtApellido" readonly>
+        <br>
+        
+        Cedula:
+        <input type="text" value={{datos[3]}} name="txtCedula" id="txtCedula" readonly>
+        <br>
+        
+        Correo:
+        <input type="text" value={{datos[4]}} name="txtCorreo" id="txtCorreo" readonly>
+        <br><br>
+
+        <label for="txtDoctor">Doctor / Especialidad:</label> <br>
+        <select name="txtDoctor" id="txtDoctor">
+            {% for datos in doctores%}
+            <option value="{{datos[0]}}">{{datos[1]}} / {{datos[2]}}</option>
+            {% endfor %}
+        </select>
+        <br>
+        
+        Fecha: 
+        <input type="date" name="txtFecha" id="txtFecha">
+        <br>
+        
+        <input type="submit" value="Actualizar cita">
+        <br>
+        <br>
+    </form>
+    {% endfor %}
+    
+    <a href="/">return</a>
+</body>
+</html>

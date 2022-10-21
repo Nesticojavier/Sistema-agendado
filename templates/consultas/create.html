@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Nueva Cita</title>
+</head>
+<body>
+    <form method="post" action="/store">
+    
+        Nombre:
+        <input type="text" name="txtNombre" id="txtNombre">
+        <br>
+
+        Apellido:
+        <input type="text" name="txtApellido" id="txtApellido">
+        <br>
+
+        Cedula:
+        <input type="text" name="txtCedula" id="txtCedula">
+        <br>
+    
+        Correo:
+        <input type="text" name="txtCorreo" id="txtCorreo">
+        <br><br>
+
+        <label for="txtDoctor">Doctor / Especialidad:</label> <br>
+        <select name="txtDoctor" id="txtDoctor">
+            {% for datos in doctores%}
+            <option value="{{datos[0]}}">{{datos[1]}} / {{datos[2]}}</option>
+            {% endfor %}
+        </select>
+        <br>
+
+        Fecha: 
+        <input type="date" name="txtFecha" id="txtFecha">
+        <br>
+
+        <input type="submit" value="Crear Cita">
+        <br>
+        <br>
+    </form>
+    
+    <a href="/">return</a>
+</body>
+</html>
